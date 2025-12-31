@@ -9,9 +9,36 @@ var address = document.querySelector("#address");
 // user data
 var user = {};
 
+/**
+ * @typedef {object} Address
+ * @property {string} street
+ * @property {string} city
+ */
+
+// Address 속성은 어떤 요소가 있는지 알고 있기 때문에 위에 따로 타입 데피니션 정의
+/**
+ * @typedef {object} User
+ * @property {string} name
+ * @property {string} email
+ * @property {Address} address
+ */
+
+/**
+ * 
+ * @returns {Promise<User>}
+ */
+function fetchUser() {
+  return axios.get(url);
+}
+
+// 타입 데피니션이 있으면 해당 response 객체에 어떤 요소들이 들어가 있는지 알 수 있다.
+fetchUser().then(function (response) {
+  response.data;
+  response.address.city;
+});
+
 function startApp() {
-  axios
-    .get(url)
+  fetchUser()
     .then(function (response) {
       console.log(response);
       user = response.data;
