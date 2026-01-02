@@ -11,3 +11,17 @@ let num: number = 10;
 let arr: Array<number> = [];
 let heroes: Array<string> = ['Capt', 'Thor', 'Hulk']; // 숫자는 들어가지 못함!
 let items: number[] = []; // 배열을 리터럴로 선언
+
+// TS 튜플 선언
+// 배열의 순서를 정하는 것
+let adress: [string, number] = ['gangnam', 100];
+
+// TS 객체 선언
+let obj: object = {};
+let person: { name: string, age: number } = {
+  name: 'thor',
+  age : 1000
+}
+
+// TS 진위값(boolean)
+let show: boolean = true;
