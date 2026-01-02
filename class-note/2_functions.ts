@@ -13,5 +13,5 @@ function add (): number {
 function sum(a: number, b: number): number {
   return a + b;
 }
-
-sum(10 , 20);
+// 파라미터보다 더 많은 인수를 넣으면 에러 발생!! (자바스크립트에서는 에러가 뜨지 않는다 -> 자바스크립트 보다 더 엄격하다.)
+// sum(10, 20, 30 ,40);
