@@ -25,3 +25,19 @@ function logMessage(value: string | number) {
 }
 logMessage('hello');
 logMessage(100); // 나는 문자열과 숫자형 모두 인자로 쓰고 싶어!
+
+interface Developer {
+  name: string;
+  skill: string;
+}
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+function askSomone(someone: Developer | Person) {
+  // Developer과 Person의 공통된 속성에 대해서만 제공이 된다.
+  someone.name;
+  // someone.skill; -> 에러 발생!
+}
