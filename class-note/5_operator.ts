@@ -5,8 +5,6 @@
 // logMessage('hello');
 
 // 유니온 타입
-var seho: string | number | boolean;
-
 // 유니온 타입 함수에서의 활용
 function logMessage(value: string | number) {
   // 유니온 타입의 장점 - 타입 가드
@@ -39,5 +37,14 @@ interface Person {
 function askSomone(someone: Developer | Person) {
   // Developer과 Person의 공통된 속성에 대해서만 제공이 된다.
   someone.name;
-  // someone.skill; -> 에러 발생!
+  // someone.skill; -> 에러 발생! -> 공통된 속성이 아닌 다른 속성을 사용하려면 타입가드 필요
+}
+
+// 인터섹션 타입 -> 조건의 타입들을 모두 만족하는 타입
+var capt: string & number & boolean;
+
+function askSomon2(someone2: Developer & Person) {
+  someone2.name;
+  someone2.skill; // 타입 가드 없이 공통된 속성을 처리 가능
+  someone2.age;
 }
