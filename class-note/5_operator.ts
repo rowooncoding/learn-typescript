@@ -39,12 +39,16 @@ function askSomone(someone: Developer | Person) {
   someone.name;
   // someone.skill; -> 에러 발생! -> 공통된 속성이 아닌 다른 속성을 사용하려면 타입가드 필요
 }
+askSomone({ name: '디벨로퍼', skill: '웹 개발'});
+askSomone({ name: '캡틴', age: 11});
 
 // 인터섹션 타입 -> 조건의 타입들을 모두 만족하는 타입
 var capt: string & number & boolean;
 
-function askSomon2(someone2: Developer & Person) {
+function askSomone2(someone2: Developer & Person) {
   someone2.name;
   someone2.skill; // 타입 가드 없이 공통된 속성을 처리 가능
   someone2.age;
 }
+// askSomone2({ name: '디벨로퍼', skill: '웹 개발'}); // 이렇게 넘기면 에러! -> 인터섹션은 모든 속성들을 합쳐서 넘겨줘야함
+askSomone2({ name: '디벨로퍼', skill: '웹 개발', age: 34 }); // 모든 속성 넘기면 에러 뜨지 않음 -> 인터섹션보다 유니온 타입을 더 많이 쓰는 이유임
