@@ -24,3 +24,14 @@ str.split(''); // 이제 가능!
 
 // 불린형으로 정의
 const login = logText<boolean>(true);
+
+// 인터페이스에 제네릭을 선언하는 방법
+interface Dropdown<T> {
+  value: T;
+  selected: boolean;
+}
+// 인터페이스로 정의된 제네릭을 문자열로 선언하는 방법
+const obj: Dropdown<string> = {
+  value: 'abc',
+  selected: true
+}
