@@ -35,3 +35,36 @@ const obj: Dropdown<string> = {
   value: 'abc',
   selected: true
 }
+
+// 제네릭의 타입 제한
+function logTextLength<T>(text: T[]): T[] {
+  console.log(text.length);
+  text.forEach((text) => {
+    console.log(text);
+  });
+  return text;
+}
+
+// 제네릭 타입 제한 2 - 정의된 타입 이용하기
+interface LengthType {
+  length: number;
+}
+// T는 length라는 속성이 있는 타입이야! 라고 선언
+// 그래서 숫자형은 인자로 들어롤 수 없음
+function logTextLength2<T extends LengthType>(text: T): T {
+  text.length;
+  return text;
+}
+
+// 제네릭 타입제한 3 - keyof
+interface ShoppingItem {
+  name: string;
+  price: number;
+  stock: number;
+}
+// 타입 정의에 있는 key에 해당하는 것만 받기
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+  return itemOption;
+}
+getShoppingItemOption('name');
+// getShoppingItemOption(10); -> key만 받을 수 있기 때문에 에러!
