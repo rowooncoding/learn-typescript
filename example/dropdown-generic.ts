@@ -35,10 +35,10 @@ const numberOfProducts: DropdownItem<number>[] = [
 ];
 
 // 이 함수에서 value인자는 string일수도 있고 number일수도 있다!
-function createDropdownItem(item: DropdownItem<string> | DropdownItem<number>) {
+function createDropdownItem<T>(item: DropdownItem<T>) {
   const option = document.createElement('option');
-  option.value = item.value.toString();
-  option.innerText = item.value.toString();
+  option.value = String(item.value);
+  option.innerText = String(item.value);
   option.selected = item.selected;
   return option;
 }
@@ -51,3 +51,7 @@ if (selectTag) {
     selectTag.appendChild(item);
   });
 }
+
+numberOfProducts.forEach(function (product) {
+  const item = createDropdownItem(product);
+});
