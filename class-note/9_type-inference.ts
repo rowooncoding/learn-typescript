@@ -34,3 +34,6 @@ let detailedItem: DetailedDropdown<string> = {
   value: 'a',
   tag: 'a',
 }
+
+// Best Common Type
+let arr = [1, 2, true, true, 'a']; // 유니온 타입으로 추론
