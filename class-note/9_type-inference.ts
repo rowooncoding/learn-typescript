@@ -6,3 +6,12 @@ function getB(b = 10) { // b에 대한 타입 추론 자동 진행
   return b + c; // '10hi' -> 리턴값 자동 추론 -> 내가 원하는 결과가 아니야!
 }
 
+// 타입 추론 기본 2
+interface Dropdown<T> {
+  value: T;
+  title: string;
+};
+let shoppingItem: Dropdown<string> = {
+  value: 'abc',
+  title: 'hello',
+}
