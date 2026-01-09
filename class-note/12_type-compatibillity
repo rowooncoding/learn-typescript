@@ -1,0 +1,52 @@
+// 타입 호환
+
+interface Developer {
+  name: string;
+  skill: string;
+}
+
+interface Person {
+  name: string;
+}
+
+let developer: Developer = { name: 'tony', skill: 'beam' };
+let person: Person = { name: 'hulk' };
+
+// developer = person; -> 에러! : developer의 요소가 더 많아서 skill이라는 요소가 부족해!!
+person = developer; // 가능!! : person의 속성이 developer보다 작음!!
+
+// 함수
+let add = function(a: number) { // 파라미터 한개!
+  // ..
+}
+
+let sum = function(a: number, b: number) { // 파라미터 더 많음!
+  // .. 
+}
+
+// add = sum ->  add의 파라미터가 더 작기 때문에 불가능!!!!
+sum = add; // sum의 파라미터가 더 많기 때문에 가능!
+
+// 제네릭
+interface Empty<T> {
+  // ..
+}
+
+var empty1: Empty<string> = {};
+var empty2: Empty<number> = {};
+
+// 비어있는 객체라면 모두 호환 가능!
+empty1 = empty2;
+empty2 = empty1;
+
+interface NotEmpty<T> {
+  data: T;
+}
+
+var notEmpty1: NotEmpty<string> = { data: 'hello' };
+var notEmpty2: NotEmpty<number> = { data: 1 };
+
+/* 둘이 내부 요소가 다르기 때문에 호환 안됨!!
+notEmpy1 = notEmpty2;
+notEmpy2 = notEmpty1;
+*/
